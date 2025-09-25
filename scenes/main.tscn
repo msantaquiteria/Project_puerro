@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://brrb2r7qfnki"]
+
+[ext_resource type="PackedScene" uid="uid://okjhm5gu4aj2" path="res://scenes/player/player.tscn" id="3_sugp2"]
+[ext_resource type="Resource" uid="uid://cnho2lk0dim2n" path="res://scripts/resources/monsters/Hctap_Nod.tres" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://cre1rhvpjw5nf" path="res://scripts/systems/camera_anchor.gd" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dmlodcdjjm8ds" path="res://scenes/monsters/monstruo.tscn" id="4_o6xl0"]
+[ext_resource type="Resource" uid="uid://urho8c54a1jf" path="res://scripts/resources/player_stats.tres" id="4_tbgi4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
+size = Vector3(100, 1, 100)
+
+[node name="Main" type="Node"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_ig7tw")
+
+[node name="CameraAnchor" type="Node3D" parent="."]
+script = ExtResource("3_tefeu")
+target_node_path = NodePath("../Player")
+
+[node name="IsometricCamera" type="Camera3D" parent="CameraAnchor"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 10, 15, 10)
+projection = 1
+fov = 39.4
+size = 18.0
+
+[node name="Hctap Nod" parent="." groups=["monstruos"] instance=ExtResource("4_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3469, 0, -23.4612)
+collision_layer = 2
+collision_mask = 2
+monster_stats = ExtResource("3_tbgi4")
+player_stats = ExtResource("4_tbgi4")
+
+[node name="Player" parent="." instance=ExtResource("3_sugp2")]
+stop_distance = 0.1
+rotation_speed = 10.0
+attack_raycast_range = 2.0
+player_stats = ExtResource("4_tbgi4")

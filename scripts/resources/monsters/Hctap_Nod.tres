@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=2 format=3 uid="uid://cnho2lk0dim2n"]
+
+[ext_resource type="Script" uid="uid://b1gdktd0fcjtn" path="res://scripts/resources/monsters/EnemyResource.gd" id="1_hjutj"]
+
+[resource]
+script = ExtResource("1_hjutj")
+id = "Hctap_Nod"
+enemy_name = "Hctap Nod"
+experience_on_death = 100
+drop_table_id = ""
+max_health = 100
+current_health = 100
+max_mana = 50
+current_mana = 50
+attack_damage = 5
+attack_cooldown = 2.0
+defense = 5
+critical_chance = 0.05
+critical_damage = 1.5
+move_speed = 2.0
+attack_speed = 1.0
+detection_range = 10.0
+attack_range = 1.5
+metadata/_custom_type_script = "uid://b1gdktd0fcjtn"

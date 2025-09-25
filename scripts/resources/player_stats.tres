@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://urho8c54a1jf"]
+
+[ext_resource type="Script" uid="uid://dm6iue30nn4yx" path="res://scripts/resources/PlayerStats.gd" id="1_r32g3"]
+
+[resource]
+script = ExtResource("1_r32g3")
+max_health = 100
+current_health = 100
+max_mana = 50
+current_mana = 50
+attack_damage = 10
+attack_cooldown = 1.0
+attack_range = 5.0
+current_attack_cooldown = 0.0
+defense = 5
+critical_chance = 0.05
+critical_damage = 1.5
+move_speed = 5.0
+metadata/_custom_type_script = "uid://dm6iue30nn4yx"

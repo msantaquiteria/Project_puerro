@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmlodcdjjm8ds"]
+
+[ext_resource type="Script" uid="uid://c5g5tl5gr1pob" path="res://scripts/systems/monstruo.gd" id="1_5vc1f"]
+[ext_resource type="PackedScene" uid="uid://cw7ojc2m7siak" path="res://art/enemies/Hctap Nod.glb" id="1_b0fl0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b0fl0"]
+radius = 0.8
+
+[node name="Monstruo" type="CharacterBody3D"]
+script = ExtResource("1_5vc1f")
+
+[node name="Hctap Nod" parent="." instance=ExtResource("1_b0fl0")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00256123, 1.0035, 0)
+shape = SubResource("SphereShape3D_b0fl0")
+
+[node name="AACD" type="Timer" parent="."]
+
+[connection signal="timeout" from="AACD" to="." method="_on_aacd_timeout"]

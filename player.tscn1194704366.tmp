@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://okjhm5gu4aj2"]
+
+[ext_resource type="PackedScene" uid="uid://xpajkig6pkvw" path="res://art/player.blend" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://bwtlhuxbwe6hh" path="res://player.gd" id="1_onrkg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_onrkg")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="player" parent="Pivot" instance=ExtResource("1_4flbx")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_4flbx")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+transform = Transform3D(0.0161876, 1.54883, 1.26525, 0.0198141, -1.26536, 1.5487, 1.99984, 3.31335e-09, -0.0255859, 1.33799, 2.36363, 0)

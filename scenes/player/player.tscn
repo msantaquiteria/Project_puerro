@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://okjhm5gu4aj2"]
+
+[ext_resource type="Script" uid="uid://bwtlhuxbwe6hh" path="res://scripts/systems/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://bkjmaudhxelii" path="res://art/player.glb" id="2_gmlin"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lvxji"]
+height = 2.85212
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+transform = Transform3D(-0.485161, 0, 0.874425, 0, 1, 0, -0.874425, 0, -0.485161, 0, 0, 0)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_dovo2")
+ray_collision_mask = 3
+
+[node name="Pivot" parent="." instance=ExtResource("2_gmlin")]
+transform = Transform3D(0.894779, 0, -0.44651, 0, 1, 0, 0.44651, 0, 0.894779, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_lvxji")
