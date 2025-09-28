@@ -18,17 +18,24 @@ class_name PlayerStats extends Resource
 @export_group("Utility Stats")
 @export var move_speed: float = 5.0
 
+@export_group("Meta Stats")
+@export var rotation_speed: float = 10.0
+
+signal player_health_changed(current: int, maximum: int)
+
 func take_damage(amount: int):
-	current_health -= amount
+	current_health = max(0, current_health - amount)
 	if current_health <= 0:
 		current_health = 0
 		print("El jugador ha muerto!")
+	emit_signal("player_health_changed", current_health, max_health)
 	print("Salud restante: ", current_health)
 	
 func heal(amount: int):
 	current_health += amount
 	if current_health >= max_health:
 		current_health = max_health
+	emit_signal("player_health_changed", current_health, max_health)
 	print("Salud curada, nueva salud: ", current_health)
 	
 func can_attack() -> bool:

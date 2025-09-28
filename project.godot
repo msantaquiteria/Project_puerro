@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="Proyecto-Puerro"
+run/main_scene="uid://brrb2r7qfnki"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="res://scripts/singletons/GameManager.gd"
+HUD="*res://scenes/ui/hud.tscn"
 
 [global_group]
 

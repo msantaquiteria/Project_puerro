@@ -3,6 +3,8 @@ extends CharacterBody3D
 @export var monster_stats: EnemyResource
 @export var player_stats: PlayerStats
 
+signal monster_health_changed(new_health: int)
+
 @onready var attack_cd_timer: Timer = $AACD #referencia al timer
 
 var can_attack: bool = true
@@ -43,11 +45,13 @@ func attack_player() -> void:
 	can_attack = false
 	attack_cd_timer.start()
 	#Aquí habría una animación
-	player_stats.take_damage(monster_stats.attack_damage)
+	player_node.take_damage(monster_stats.attack_damage)
 
 func take_damage(amount: int) -> void:
-	monster_stats.current_health -= amount
+	monster_stats.current_health = max(0, monster_stats.current_health - amount)
 	print("Monster took ", amount, " damage. Current health: ", monster_stats.current_health)
+	#Enviamos señal para el HUD
+	emit_signal("monster_health_changed", monster_stats.current_health)
 	if monster_stats.current_health <= 0:
 		die()
 		

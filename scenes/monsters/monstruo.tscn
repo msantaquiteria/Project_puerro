@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cw7ojc2m7siak" path="res://art/enemies/Hctap Nod.glb" id="1_b0fl0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_b0fl0"]
-radius = 0.8
+radius = 1.0
 
 [node name="Monstruo" type="CharacterBody3D"]
 script = ExtResource("1_5vc1f")
@@ -13,7 +13,7 @@ script = ExtResource("1_5vc1f")
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00256123, 1.0035, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026546, 1.0035, 0)
 shape = SubResource("SphereShape3D_b0fl0")
 
 [node name="AACD" type="Timer" parent="."]

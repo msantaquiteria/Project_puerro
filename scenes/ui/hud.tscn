@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://no6300nommv4"]
+
+[ext_resource type="Script" uid="uid://d0im6pwiu6w83" path="res://scripts/systems/hud.gd" id="1_0mwgc"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_0mwgc")
+
+[node name="MonsterHUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="MonsterInfo" type="VBoxContainer" parent="MonsterHUD"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="MonsterName" type="Label" parent="MonsterHUD/MonsterInfo"]
+layout_mode = 2
+
+[node name="MonsterHealth" type="TextureProgressBar" parent="MonsterHUD/MonsterInfo"]
+layout_mode = 2
+value = 100.0
+
+[node name="PlayerHUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="LifeOrb" type="TextureProgressBar" parent="PlayerHUD"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 2
